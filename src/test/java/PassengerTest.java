@@ -1,4 +1,8 @@
+import org.junit.Before;
+import org.junit.Test;
 import people.Passenger;
+
+import static org.junit.Assert.assertEquals;
 
 public class PassengerTest {
 
@@ -6,8 +10,11 @@ public class PassengerTest {
 
     @Before
     public void before(){
-        pasenger = new Passenger("Mike", 1);
+        passenger = new Passenger("Mike", 1);
     }
 
-    
+    @Test
+    public void passengerHasName(){
+        assertEquals("Mike", passenger.getName());
+    }
 }
