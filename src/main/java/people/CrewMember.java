@@ -9,5 +9,7 @@ public class CrewMember extends Person {
         this.rank = rank;
     }
 
-
+    public Rank getRank(){
+        return rank;
+    }
 }
