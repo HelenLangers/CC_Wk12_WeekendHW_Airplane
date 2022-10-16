@@ -8,6 +8,6 @@ public class CrewMember extends Person {
         super(name);
         this.rank = rank;
     }
-    
+
 
 }
