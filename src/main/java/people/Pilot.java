@@ -13,4 +13,7 @@ public class Pilot extends CrewMember{
         return pilotLicenseNumber;
     }
 
+    public String flyPlane() {
+        return "Hello and welcome aboard flight...";
+    }
 }
