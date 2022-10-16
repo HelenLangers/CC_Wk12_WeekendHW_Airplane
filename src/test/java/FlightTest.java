@@ -1,9 +1,12 @@
 import flight.Flight;
 import org.junit.Before;
+import org.junit.Test;
 import people.CabinCrewMember;
 import people.Passenger;
 import people.Pilot;
 import people.Rank;
+
+import static org.junit.Assert.assertEquals;
 
 public class FlightTest {
 
@@ -24,6 +27,29 @@ public class FlightTest {
         passenger1 = new Passenger("Mike", 1);
         passenger2 = new Passenger("Helen", 2);
         passenger3 = new Passenger("Jasmin", 3);
+    }
+
+    @Test
+    public void canAddPilot(){
+        flight.addPilot(pilot1);
+        assertEquals(1, flight.getPilotListLength());
+    }
+
+    @Test
+    public void canAddCrewMembers(){
+        flight.addCrewMember(cabinCrewMember);
+        assertEquals(1, flight.getCabinCrewListLength());
+    }
+
+    @Test
+    public void canAddPassengers(){
+        flight.addPassenger(passenger1);
+        assertEquals(1, flight.getPassengerListLength());
+    }
+
+    @Test
+    public void flightHasFlightNumber(){
+        assertEquals("KEH3895", flight.getFlightNumber());
     }
 
 }
