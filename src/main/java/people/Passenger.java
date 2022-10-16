@@ -12,4 +12,8 @@ public class Passenger extends Person {
     public int getNumberOfBags(){
         return numberOfBags;
     }
+
+    public int setNumberOfBags(int newNumberOfBags){
+        return this.numberOfBags = newNumberOfBags;
+    }
 }
