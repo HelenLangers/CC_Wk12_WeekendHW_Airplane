@@ -8,4 +8,8 @@ public class Passenger extends Person {
         super(name);
         this.numberOfBags = numberOfBags;
     }
+
+    public int getNumberOfBags(){
+        return numberOfBags;
+    }
 }
