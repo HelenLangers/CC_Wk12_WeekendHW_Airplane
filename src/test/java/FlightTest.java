@@ -20,7 +20,7 @@ public class FlightTest {
 
     @Before
     public void before(){
-        flight = new Flight("KEH3895", 4, "EDI", "MIL", "19:45");
+        flight = new Flight("KEH3895", 2, "EDI", "MIL", "19:45");
         pilot1 = new Pilot("Bill", Rank.CAPTAIN, "9347qt8");
         pilot2 = new Pilot("Gillian", Rank.FIRST_OFFICER, "230954fs");
         cabinCrewMember = new CabinCrewMember("Dave", Rank.LEAD_ATTENDANT);
@@ -43,13 +43,77 @@ public class FlightTest {
 
     @Test
     public void canAddPassengers(){
-        flight.addPassenger(passenger1);
+        flight.bookPassenger(passenger1);
         assertEquals(1, flight.getPassengerListLength());
+    }
+
+    @Test
+    public void cannotAddPassengers(){
+        flight.bookPassenger(passenger1);
+        flight.bookPassenger(passenger2);
+        flight.bookPassenger(passenger3);
+        assertEquals(2, flight.getPassengerListLength());
     }
 
     @Test
     public void flightHasFlightNumber(){
         assertEquals("KEH3895", flight.getFlightNumber());
+    }
+
+    @Test
+    public void flightHasCapacity(){
+        assertEquals(2, flight.getCapacity());
+    }
+
+    @Test
+    public void flightHasDepartureAirport(){
+        assertEquals("EDI", flight.getDepartureAirport());
+    }
+
+    @Test
+    public void flightHasDestinationAirport(){
+        assertEquals("MIL", flight.getDestinationAirport());
+    }
+
+    @Test
+    public void flightHasDepartureTime(){
+        assertEquals("19:45", flight.getDepartureTime());
+    }
+
+    @Test
+    public void returnRemainingSeats(){
+        flight.bookPassenger(passenger1);
+        assertEquals(1, flight.remainingSeats());
+    }
+
+    @Test
+    public void canSetFlightNumber(){
+        flight.setFlightNumber("LAN398");
+        assertEquals("LAN398", flight.getFlightNumber());
+    }
+
+    @Test
+    public void canSetCapacity(){
+        flight.setCapacity(5);
+        assertEquals(5, flight.getCapacity());
+    }
+
+    @Test
+    public void canSetDepartureAirport(){
+        flight.setDepartureAirport("GLA");
+        assertEquals("GLA", flight.getDepartureAirport());
+    }
+
+    @Test
+    public void canSetDestinationAirport(){
+        flight.setDestinationAirport("LHW");
+        assertEquals("LHW", flight.getDestinationAirport());
+    }
+
+    @Test
+    public void canSetDepartureTime(){
+        flight.setDepartureTime("20:30");
+        assertEquals("20:30", flight.getDepartureTime());
     }
 
 }

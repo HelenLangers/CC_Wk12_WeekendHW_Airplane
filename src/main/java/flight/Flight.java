@@ -76,8 +76,10 @@ public class Flight {
         this.cabinCrewMembers.add(cabinCrewMember);
     }
 
-    public void addPassenger(Passenger passenger){
-        this.passengers.add(passenger);
+    public void bookPassenger(Passenger passenger){
+        if (this.remainingSeats() > 0) {
+            this.passengers.add(passenger);
+        }
     }
 
     public int getPilotListLength(){
@@ -90,6 +92,10 @@ public class Flight {
 
     public int getPassengerListLength(){
         return passengers.size();
+    }
+
+    public int remainingSeats(){
+        return this.capacity - this.getPassengerListLength();
     }
 
 }
