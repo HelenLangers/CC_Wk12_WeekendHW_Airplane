@@ -12,4 +12,8 @@ public abstract class Person {
         return name;
     }
 
+    public String setName(String name){
+        return this.name = name;
+    }
+
 }
